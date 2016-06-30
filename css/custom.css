@@ -1,0 +1,154 @@
+body {	
+		background-color: #ffc;
+		/* max-width: 365px;
+		   height: 800px;
+		   this is a google font
+		font-family:'Shadows Into Light', cursive;*/
+		font-family: sans-serif;
+		margin: 0;
+
+}
+
+@font-face { font-family: myfirstFont;
+			 src: url(../font/KGLifeisMessy.ttf);
+
+}
+
+
+h1,h2,h3,h4,h5 { font-family: myfirstFont;
+				   margin: 0;
+				  padding: 0;			
+
+}
+
+h1 {letter-spacing: 5px;
+
+}
+
+#wrap{        border: solid 5px #000;
+			position: absolute;
+		 margin-left: 40%;
+	    margin-right: 40%;
+	    	   float: both;
+	    	   clear: both;
+}
+
+#dropdown-content{ display:  none;
+			  		 float: right;
+			  		 clear:  both;
+			  	  position: absolute;
+			  		   top:   10%;
+			  		 right:   0px;
+}
+
+
+#dropbtn {        border: none;
+    			  cursor: pointer;
+    			   width: 40px;
+	   	  vertical-align: text-top;
+
+}
+
+.mobile_nav{ 
+			padding-top: 10px;
+			      clear: both;
+
+}
+
+.hnav{	 	  width: 38%;
+   		margin-left: 7%;
+   	        padding: 3%;
+}
+
+nav {          width: 100%;
+	background-color: #000;
+	  padding-bottom:  10px;
+
+}
+
+nav ul a:hover { text-decoration: none;
+				
+}
+
+
+nav li  { 	list-style: none;
+			     color: #ffc;
+		
+
+}
+
+nav ul li:hover{ background-color: #333;
+						    color: #000;
+}
+
+nav ul {background-color: #000;
+		  padding-bottom: 10px;
+		    padding-left:  7px;
+}
+
+form {  margin-left: 10px;
+	   margin-right: 10px;
+
+}
+
+input:focus { color: #f00;
+
+}
+
+label { padding: 5px;
+
+}
+
+
+.portfolio { width: 22%;
+			 float: left;
+			 padding: 0 10px 0 50px;
+			 clear: left;		
+}
+
+.test {	background-color: #ccc;
+		width:	25%;
+		height: 25%;
+		float: right;
+
+}
+
+#hometext { background-color: rgba(255,255,255,0.7);
+			padding: 5px 10px 5px 10px;
+
+}
+
+.top_text {	vertical-align: text-top;
+			clear: both;
+			width: 100%;
+			margin: 0, auto;
+}
+
+.top_text p { width: 95%;
+
+}
+
+button {  margin-left: 30%;
+		 margin-right: 30%;
+		margin-bottom: 10px;
+	   padding-bottom: 0px;
+	            width: 150px;
+	           height: 30px;
+
+}
+
+footer a {	color: #ffc;
+			text-decoration: none;
+}
+
+#contact {	text-align: center;
+		   padding-top: 20px;
+				height:  20%;
+	  background-color: #000;
+				 color:	#ccc;
+			 	 width: 100%;
+			  position: relative;
+			    bottom:  0px;
+			    float: both;
+				clear: both;
+}
