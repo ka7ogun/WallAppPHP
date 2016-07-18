@@ -34,7 +34,6 @@
 	 	<div id="innerC">
 	 		  
 	 		   <div id="map">
-	 		   	<button onclick="getLocation()">Try It</button>
 
 	 		   </div>
 

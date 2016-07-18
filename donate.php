@@ -15,23 +15,22 @@
 	 	<nav>			
 	 		<ul id="dropdown-content">
 				<a href="index.html"><li> Home </li></a>
-				<a href="artist.html"> <li>Artist</li></a>
-				<a href="join.html"><li>Join</li></a>
+				<a href="join.php"><li>Join</li></a>
 				<a href="map.html"><li>Map</li></a>
-				<a href="upload.html"><li>Upload</li></a>
-				<a href="donate.html"><li> Donate</li></a>
+				<a href="upload.php"><li>Upload</li></a>
+				<a href="gallery.php"><li>Gallery</li></a>
+				<a href="donate.php"><li> Donate</li></a>
+				<a href="signin.php"><li>Sign In</li></a>
 			</ul>
 						
 			<table width="100%"><tr><td align="center">
 				<h1>WALL-OFF</h1>	
-				<h3>"Teens Painting NYC"</h3></td>
+				<h3>"Discover Public Art</h3></td>
 				<td valign="top" align="right"><img src="image/mobilemenu.png" id="dropbtn"></td></tr>
 			</table>
 	 	</nav>
-	 	<div>
-
-
-	 		 <form method="POST" action="test.php" id="wallDonate">
+	 	<div id="innerC">
+	 		 <form method="POST" action="database.php" id="wallDonate">
 				<legend> Donate </legend>
 					<label> First Name:  <input type="text" name="firstname" id="FN" placeholder="First Name" /> </label> 
 
@@ -44,13 +43,13 @@
 
 							<label> City: <input type="text" name="city" id="city1" size="18" placeholder="City"/></label>
 
-							<label> State: <input type="text" name="state" id="state1" size="1" placeholder="State"/></label>
+							<label> State: <input type="text" name="state" id="state1" size="5" placeholder="State"/></label>
 
-							<label> Zip: <input type="text" name="zip" id="zip1" size="4" placeholder="Zipcode"/></label>
+							<label> Zip: <input type="text" name="zip" id="zip1" size="7" placeholder="Zipcode"/></label>
 
 							<label>Donate $$<select name="amount" id="amount">
 									<option value="">Choose.....</option>
-									<option value="5">$5.00 </option>
+									<option value='5'>$5.00 </option>
 									<option value="10">$10.00</option>
 									<option value="20">$20.00</option>
 									<option value="25">$25.00</option>
@@ -64,15 +63,13 @@
 
 
 							<label> Credit Card #: <input type="text" name="cc" id="cc" size="42" placeholder="No dashes required"/></label>
-
-							
-						
-
 						<br/>
+						<input type="hidden"  name="dataSource" value="donate"/>
+	
 							 <button type="button" id="donateBtn"> Donate </button>
 				</form>
 			</div>
-	 	    <div id="contact">
+	 	    <footer id="contact">
 	 			<footer>
 				Contact us via email <a href="mailto:digikanyc@gmail.com">info@Wall_Off</a> 
 			    All rights reserved by Wall-Off NYC &copy; Copyright 
@@ -84,7 +81,7 @@
 		
 
 
-
+	<script src="js/jquery-3.0.0.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>

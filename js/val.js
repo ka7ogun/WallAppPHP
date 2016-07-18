@@ -1,5 +1,99 @@
+   function validate( inputType, userInput ){
+		var valid = false;
+
+		switch( inputType ){
+			case 'normalString':
+					console.log( "Validating a String" );
+					userInput = cleanUp( userInput );
+					valid = true;
+				break;
+
+			case 'emailAddress':
+				console.log( "Validating Email Address" );
+					userInput = cleanUp( userInput );
+					if( userInput.indexOf("@") >= 0){
+						if( userInput.indexOf(".") >= 0 ){
+							valid = true;
+						}
+					}
+				break;
+
+			case 'zipCode':
+					console.log("Validating a zip code");
+					userInput = cleanUp( userInput );
+					if( isNaN( userInput ) ){
+						valid = false;
+					}else{
+						if( userInput.length === 5 ){
+							valid = true;
+						}else{
+							valid = false;
+						}
+					}
+				break;
+
+			case 'creditCard':
+					console.log("Validating CC");
+					//userInput = cleanUp( userInput );
+
+					console.log( userInput.length )
+					if( isNaN( userInput ) ){
+						valid = false;
+					}else{
+
+						if( userInput.length >= 13 && userInput.length <= 16){
+
+							valid = true;
+						}else{
+							valid = false;
+						}
+					}
+				break;
+
+			case 'number':
+					console.log("Validating Number");
+
+					 console.log( userInput )
+					 console.log( typeof(userInput))
+					 console.log( "-------------")
+					 console.log( userInput.length )
+
+					//userInput = cleanUp( userInput );
+					if( isNaN( userInput ) ){
+						//alert("HI")
+						valid = false;
+					}else{
+					//	alert("HI")
+					//	if( userInput.length > 0){
+
+							valid = true;
+					//	}else{
+						//	valid = false;
+						//}
+					}
+				break;
+		}
+		return valid;
+	}
+
+
+	function cleanUp( userInput ){
+	 console.log("cleanUp() initiated...");
+			var temp = userInput;
+
+		temp = temp.replace(/-/g, "");
+		temp = temp.replace("<", "&lt;");
+		temp = temp.replace(">", "&gt;");
+		temp = temp.replace("SELECT", "");
+		temp = temp.replace("DELETE", "");
+		temp = temp.replace("INSERT", "");
+		temp = temp.replace("alert()", "");
+		return temp;
+	}
+
+
 $(document).ready(function(){
-	
+		
 	var firstname
 	var lastname
 	var email
@@ -14,7 +108,16 @@ $(document).ready(function(){
 	var amt 
 	var	type
 	var	cc 
-
+	var artistname
+	var muralname
+	var file
+	var display
+	var addressM
+	var cityM
+	var stateM
+	var zipM
+	var country
+	var description
 
 
 
@@ -31,6 +134,19 @@ $(document).ready(function(){
 	var amount_valid 		= false;
 	var	type_valid 			= false;
 	var	cc_valid 			= false;
+	var artistname_valid	= false;
+	var	muralname_valid		= false;
+	var file_valid			= false;
+	var display_valid		= false;
+	var addressM_valid		= false;
+	var cityM_valid 		= false;
+	var stateM_valid 		= false;
+	var zipM_valid 			= false;
+	var country_valid 		= false;
+	var description_valid 	= false;
+
+
+
 
 
 
@@ -76,7 +192,6 @@ $(document).ready(function(){
 			age_valid = validate( "number", age);
 		}
 
-
 		if( year === "" ){
 			$("#year").css("border", "solid 1px red");
 		}else{
@@ -89,14 +204,14 @@ $(document).ready(function(){
 			occupation_valid = validate( "normalString", occupation);
 		}
 
-
-		if( firstname_valid&&lastname_valid&&email_valid&&borough_valid&&age_valid&&year_valid&& occupation_valid){
+		if( firstname_valid&&lastname_valid&&email_valid&&city_valid&&age_valid&&year_valid&& occupation_valid){
 			$("#wallJoin").submit();
 		}else{
 			alert("Please complete form");
 		}
+	 });
 
-	});
+
 
 		$("#donateBtn").click(function(){
 
@@ -135,6 +250,12 @@ $(document).ready(function(){
 			address_valid = validate( "normalString", address);
 		}
 
+		if( city === "" ){
+			$("#city1").css("border", "solid 1px red");
+		}else{
+			city_valid = validate( "normalString", city);
+		}
+
 		if( state === "" ){
 			$("#state1").css("border", "solid 1px red");
 		}else{
@@ -162,88 +283,93 @@ $(document).ready(function(){
 		if( amt === "" ){
 			$("#amount").css("border", "solid 1px red");
 		}else{
-			amount_valid = validate( "number", amt);
+			amount_valid = validate( "number", parseInt(amt) );
 		}
 	
-		if(firstname_valid&&lastname_valid&&email_valid&&address_valid&&city_valid&&state_valid&&zip_valid&&state_valid&&cc_valid&&amount_valid){
+		if(firstname_valid&&lastname_valid&&email_valid&&address_valid&&city_valid&&state_valid&&zip_valid&&type_valid&&cc_valid&&amount_valid){
 			$("#wallDonate").submit();
 		}else{
 			alert("Please complete form");
 		}
 	});
 
-});
 
 
 
 
 
-	function validate( inputType, userInput ){
-		var valid = false;
-		switch( inputType ){
-			case 'normalString':
-					console.log( "Validating a String" );
-					userInput = cleanUp( userInput );
-					valid = true;
-				break;
-			case 'emailAddress':
-				console.log( "Validating Email Address" );
-					userInput = cleanUp( userInput );
-					if( userInput.indexOf("@") >= 0){
-						//valid so far...
-						if( userInput.indexOf(".") >= 0 ){
-							valid = true;
-						}
-					}
-				break;
-			case 'zipCode':
-					console.log( "Validating a zip code" );
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						//so far so good.
-						if( userInput.length == 5 ){
-							valid = true;
-						}else{
-							valid = false;
-						}
-					}
-				break;
-			case "creditCard":
-					console.log("Validating CC")
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						if( userInput.length == VISA){
-							valid = true;
-						}else{
-							valid = false;
-						}
-					}
-				break;
-			case "number":
-					userInput = cleanUp( userInput );
-					if( isNaN( userInput ) ){
-						valid = false;
-					}else{
-						valid = true;
-					}
-				break;
+		$("#uploadBtn").click(function(){
+
+		artistname = $("#AN").val();
+		 muralname = $("#MN").val();
+	   description = $("#muralIN").val();
+		  addressM = $("#streetM").val();
+		     cityM = $("#cityM").val();
+		    stateM = $("#stateM").val();
+			  file = $("#file1").val();
+		   display = $("#visible").val();
+
+
+	    if( artistname === "" ){
+			$("#AN").css("border", "solid 1px red");
+		}else{
+			artistname_valid = validate( "normalString", artistname);
 		}
-		return valid;
-	}
 
-	function cleanUp( userInput ){
-		console.log("cleanUp() initiated...");
-		var temp = userInput;
-		temp = temp.replace(/-/g, "");
-		temp = temp.replace("<", "&lt;");
-		temp = temp.replace(">", "&gt;");
-		temp = temp.replace("SELECT", "");
-		temp = temp.replace("DELETE", "");
-		temp = temp.replace("INSERT", "");
-		temp = temp.replace("alert()", "");
-		return temp;
-	}
+		if( muralname === "" ){
+			$("#MN").css("border", "solid 1px red");
+		}else{
+			muralname_valid = validate( "normalString", muralname);
+		}
+
+
+		if( description === "" ){
+			$("#muralIN").css("border", "solid 1px red");
+		}else{
+			description_valid = validate( "normalString", description);
+		}
+
+		if( addressM === "" ){
+			$("#streetM").css("border", "solid 1px red");
+		}else{
+			addressM_valid = validate( "normalString", addressM);
+		}
+
+		if( cityM === "" ){
+			$("#cityM").css("border", "solid 1px red");
+		}else{
+			cityM_valid = validate( "normalString", cityM);
+		}
+
+		if( stateM === "" ){
+			$("#stateM").css("border", "solid 1px red");
+		}else{
+			stateM_valid = validate( "normalString", stateM);
+		}
+
+		if( file === "" ){
+			$("#file1").css("border", "solid 1px red");
+		}else{
+			file_valid = validate( "normalString", file);
+		}
+
+		if( display === "" ){
+			$("#visible").css("border", "solid 1px red");
+		}else{
+			display_valid = validate( "normalString", display);
+		}
+		
+
+		if(artistname_valid||muralname_valid&&description_valid&&display_valid&&addressM_valid&&cityM_valid||stateM_valid&&file_valid){
+			$("#wallUpload").submit();
+		}else{
+			alert("Please complete form");
+		}
+
+	});
+
+  });
+
+
+
+	

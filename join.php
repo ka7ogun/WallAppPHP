@@ -14,31 +14,28 @@
 	<div id="wrap">
 	 	<nav>			
 	 		<ul id="dropdown-content">
-				<a href="index.html"><li> Home </li></a>
-				<a href="artist.html"> <li>Artist</li></a>
-				<a href="join.html"><li>Join</li></a>
-				<a href="map.html"><li>Map</li></a>
-				<a href="upload.html"><li>Upload</li></a>
-				<a href="donate.html"><li> Donate</li></a>
+	 			<a href="index.html"><li> Home </li></a>
+				<a href="join.php"><li>Join</li></a>
+				<a href="map.php"><li>Map</li></a>
+				<a href="upload.php"><li>Upload</li></a>
+				<a href="gallery.php"><li>Gallery</li></a>
+				<a href="donate.php"><li> Donate</li></a>
+				<a href="signin.php"><li>Sign In</li></a>
 			</ul>
 						
 			<table width="100%"><tr><td align="center">
 				<h1>WALL-OFF</h1>	
-				<h3>"Teens Painting NYC"</h3></td>
+				<h3>"Discover Public Art"</h3></td>
 				<td valign="top" align="right"><img src="image/mobilemenu.png" id="dropbtn"></td></tr>
 			</table>
 	 	</nav>
-	 	<div>
-
-
-	 		 <form method="POST" action="test.php" id="wallJoin">
+	 	<div id="innerC">
+	 		 <form method="POST" action="database.php" id="wallJoin">
 				<legend>Personal Info</legend>
 					<label> First Name:  <input type="text" name="firstname" id="FN" placeholder="First Name" /> </label> 
 
 					<label> Last Name: <input type="text" name="lastname" id="LN" placeholder="Last Name" /></label>
 							<br/>
-
-							<label> Email Address: <input type="text" name="email" id="E1" size="42" placeholder="We send current cites"/></label>
 
 							<label>Your Borough: 
 									<select name="city" id="city"> 
@@ -52,6 +49,20 @@
 									</select> </label>
 
 								<br/>
+
+							<label> Email Address: <input type="text" name="email" id="E1" size="42" placeholder="We send current cites"/></label>
+
+							<label id="SM" name="SM">Social Media: <br/>
+
+							<label for="insta"><input type="checkbox" name="insta" id="insta" value="instagram"> Instagram</label> <br/>
+							<label for="face"><input type="checkbox" name="face" id="face" value="facebook"> Facebook</label><br/>
+							<label for="twit"><input type="checkbox" name="twit" id="twit" value="twitter"> Twitter</label><br/>
+							<label for="link1"><input type="checkbox" name="twit" id="link1" value="linkedin"> LinkedIn</label><br/>
+
+							</label>
+							
+
+							
 
 						<label>
 						Which age group best describes you? <br/>
@@ -74,6 +85,8 @@
 							</select>
 						</label>
 						<br/>
+						<input type="hidden" name="dataSource" value="join"/>
+
 							 <button type="button" id="joinBtn"> Join </button>
 							 
 				</form>

@@ -26,11 +26,23 @@ h1 {letter-spacing: 5px;
 }
 
 #wrap{        border: solid 5px #000;
-			position: absolute;
+			position: relative;
 		 margin-left: 40%;
 	    margin-right: 40%;
 	    	   float: both;
 	    	   clear: both;
+	    	 z-index: 3;
+	      
+	   	  
+}
+
+#innerC{    overflow: scroll;
+		  overflow-x: hidden;
+		 	position: relative;
+		 	   float: both;
+		 	   clear: both;
+		 	 z-index: 3;
+
 }
 
 #dropdown-content{ display:  none;
@@ -39,6 +51,7 @@ h1 {letter-spacing: 5px;
 			  	  position: absolute;
 			  		   top:   10%;
 			  		 right:   0px;
+			  	   z-index:     5;
 }
 
 
@@ -48,6 +61,11 @@ h1 {letter-spacing: 5px;
 	   	  vertical-align: text-top;
 
 }
+
+#map {
+        height: 100%;
+      }
+
 
 .mobile_nav{ 
 			padding-top: 10px;
@@ -77,7 +95,7 @@ nav li  { 	list-style: none;
 
 }
 
-nav ul li:hover{ background-color: #333;
+nav ul li:hover{ background-color: #ffc;
 						    color: #000;
 }
 
@@ -97,6 +115,12 @@ input:focus { color: #f00;
 
 label { padding: 5px;
 
+}
+
+hr{
+	 padding: 0px;
+	  margin: 0px;
+border-color: #000;
 }
 
 
@@ -143,12 +167,13 @@ footer a {	color: #ffc;
 
 #contact {	text-align: center;
 		   padding-top: 20px;
-				height:  20%;
+				height:  15%;
 	  background-color: #000;
 				 color:	#ccc;
 			 	 width: 100%;
-			  position: relative;
+			  position: absolute;
 			    bottom:  0px;
-			    float: both;
-				clear: both;
+			     float: both;
+				 clear: both;
+			   z-index: 3;
 }

@@ -8,15 +8,13 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
-	
-	<script src="js/map.js"></script>	
 </head>
 <body>
 
 	<div id="wrap">
 	 	<nav>			
 	 		<ul id="dropdown-content">
-	 			<a href="index.html"><li> Home </li></a>
+				<a href="index.html"><li> Home </li></a>
 				<a href="join.php"><li>Join</li></a>
 				<a href="map.php"><li>Map</li></a>
 				<a href="upload.php"><li>Upload</li></a>
@@ -32,14 +30,22 @@
 			</table>
 	 	</nav>
 	 	<div id="innerC">
-	 		  
-	 		   <div id="map">
-	 		   	<button onclick="getLocation()">Try It</button>
+	 		<section style="padding:10px">
+	 			<h3 style="text-align:center">Mission Statement</h3>
+	 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in posuere neque. Maecenas in tellus nisl. Praesent eu auctor neque. Sed blandit et velit at molestie. Nulla pretium urna odio, sed molestie ante pretium at. Donec dignissim, tellus non dignissim gravida, mauris magna iaculis sem, imperdiet placerat libero libero ac sapien. Vestibulum non nisl et metus pulvinar convallis quis rutrum dui.</p>
+	 		</section>
+	 		 <form method="POST" action="database.php" id="wallJoin">
+				<legend>Sign In</legend>
 
-	 		   </div>
+					<label> Email Address: <input type="text" name="email" id="E1" size="35" placeholder="Email address linked to membership"/></label>
+					<label> Password: <input type="password" name="psswd" id="psswd" size="35" placeholder="Password must be 8 char or more"/></label>
+							
+						<input type="hidden" name="dataSource" value="signin"/>
 
-		</div>
-	 	    
+							 <button type="button" id="signBtn"> Sign In </button>
+							 
+				</form>
+	 	    </div>
 	 		<footer id="contact">
 				Contact us via email <a href="mailto:digikanyc@gmail.com">info@Wall_Off</a> 
 			    All rights reserved by Wall-Off NYC &copy; Copyright 
@@ -56,8 +62,6 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/val.js"></script>
-	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS3272i-6I7TjhMoriajTN59IEC4C1gl0&callback=initMap"></script>
 
 </body>
 </html>
