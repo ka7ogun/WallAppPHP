@@ -8,6 +8,23 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
+
+	<script type="text/javascript">
+		
+		function uploadI (){
+			
+			var photo = document.getElementById("photo");
+			
+
+			var file = photo.files[0];
+
+			console.log("File name: " + file.fileName);
+			console.log("File size: " + file.fileSize);
+			
+			return false;
+		}
+
+	</script>
 </head>
 <body>
 
@@ -32,7 +49,7 @@
 	 	<div id="innerC">
 
 
-	 		 <form method="POST" action="database.php" id="wallUpload">
+	 		 <form method="post" action="database.php" id="wallUpload" onsubmit="return uploadI();">
 				<legend>Upload Image</legend>
 					
 					<label> Artist Name: <input type="text" name="artistname" size="30" id="AN" placeholder="Artist Nickname" /></label>
@@ -88,8 +105,10 @@
 							<label> Country: <input type="text" name="countryM" id="countryM" size="19" placeholder="Outside of US"/></label>
 
 
-						<br/>
-							<label>Photo:<input style="margin:0 auto;padding:10px" type="file" name="pic" id="folder-opener" value="file1" accept="/upload"></label>
+							<br/>
+							<form enctype="multipart/form-data" action="/" method="post">
+								<label>Photo:<input style="margin:0 auto;padding:10px" type="file" name="pic" id="photo" value="file1"></label>
+							</form>
 						
 							<input type="hidden" name="dataSource" value="upload"/>
 

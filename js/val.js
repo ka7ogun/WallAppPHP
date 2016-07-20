@@ -8,6 +8,19 @@
 					valid = true;
 				break;
 
+			case 'array':
+					console.log( "Validating Array" );
+					//console.log( userInput )
+					// for(i = 0; i < userInput.length; i++){
+					// 	userInput[i] = cleanUp( userInput[i] );
+					// }
+					if( userInput.length > 0){
+						valid = true;
+					}
+					//userInput = cleanUp( userInput );
+					
+				break;
+
 			case 'emailAddress':
 				console.log( "Validating Email Address" );
 					userInput = cleanUp( userInput );
@@ -49,6 +62,7 @@
 						}
 					}
 				break;
+
 
 			case 'number':
 					console.log("Validating Number");
@@ -300,9 +314,20 @@ $(document).ready(function(){
 
 		$("#uploadBtn").click(function(){
 
-		artistname = $("#AN").val();
+		 artistname = $("#AN").val();
 		 muralname = $("#MN").val();
-	   description = $("#muralIN").val();
+		 description = [];
+
+		 $.each($("#muralIN input[name='script[]']:checked"), function(){
+		 	//console.log( $(this) );
+		 	description.push( $(this).val() )
+		 });
+
+		 console.log( description )
+	    //description = $("#muralIN input[name='script[]']").val();
+	   // console.log( $("#muralIN input[name='script[]'][checked='true']") )
+	   // console.log( typeof(description) )
+
 		  addressM = $("#streetM").val();
 		     cityM = $("#cityM").val();
 		    stateM = $("#stateM").val();
@@ -326,7 +351,7 @@ $(document).ready(function(){
 		if( description === "" ){
 			$("#muralIN").css("border", "solid 1px red");
 		}else{
-			description_valid = validate( "normalString", description);
+			description_valid = validate( "array", description);
 		}
 
 		if( addressM === "" ){
@@ -347,11 +372,11 @@ $(document).ready(function(){
 			stateM_valid = validate( "normalString", stateM);
 		}
 
-		if( file === "" ){
-			$("#file1").css("border", "solid 1px red");
-		}else{
-			file_valid = validate( "normalString", file);
-		}
+		// if( file === "" ){
+		// 	$("#file1").css("border", "solid 1px red");
+		// }else{
+		// 	file_valid = true;//validate( "normalString", file);
+		// }
 
 		if( display === "" ){
 			$("#visible").css("border", "solid 1px red");
@@ -360,7 +385,8 @@ $(document).ready(function(){
 		}
 		
 
-		if(artistname_valid||muralname_valid&&description_valid&&display_valid&&addressM_valid&&cityM_valid||stateM_valid&&file_valid){
+		if(artistname_valid||muralname_valid&&description_valid&&display_valid&&addressM_valid&&cityM_valid||stateM_valid){
+			alert("READY!")
 			$("#wallUpload").submit();
 		}else{
 			alert("Please complete form");

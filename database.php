@@ -65,7 +65,8 @@
 					 	$muralZip     = $_POST['zipM'];
 					 	$country	  = $_POST['countryM'];
 					 	$imagePath    = $_POST['pic'];
-					 	$muraldescript= serialize($_POST['script']);
+					 	//$muraldescript= serialize($_POST['script']);
+					 	$muraldescript= implode( $_POST['script'] );
 						$dataSource   = $_POST['dataSource'];
 					
 				switch( $dataSource ){
@@ -73,17 +74,22 @@
 						case "join":
 						case "donate":
 
-									$ins1 = "INSERT INTO Donate (donateAmt, cc) VALUES ($donateAmt, $cc)";
+									$ins1 = "INSERT INTO Donate (donateAmt, cc) VALUES ('$donateAmt', '$cc')";
 									$rec1 = $db->query($ins1);
 
-									$ins2 = "INSERT INTO Member (fname, lname, email, address, city, state, zip, occupation, socialMedia) VALUES ('$userFN','$userLN','$userEM','$userAdd','$userCity','$userState',$userZip,'$userJob','$userSM')"; 
+									$ins2 = "INSERT INTO Member (fname, lname, email, address, city, state, zip, occupation, socialMedia) VALUES ('$userFN','$userLN','$userEM','$userAdd','$userCity','$userState','$userZip','$userJob','$userSM')"; 
 									$rec2 = $db->query($ins2);
 						break;
 
 						case "upload":
 
-						   			$ins3 = "INSERT INTO Mural (name, script, landmark, artist, address, city, state, zip, country, imagePath, visible) VALUES ('$mural','$muraldescript','$land','$artist', '$muralAdd','$muralCity','$muralState', '$muralZip', '$country', '$imagePath', '$vmural')";
-									$rec3 = $db->query($ins3);
+									//Step 1 save file in upload folder
+									include_once("obj/fileup.php");
+									//echo ":)";
+
+									//Step 2 save reference to file in DB
+						   			//$ins3 = "INSERT INTO Mural (name, script, landmark, artist, address, city, state, zip, country, imagePath, visible) VALUES ('$mural','$muraldescript','$land','$artist', '$muralAdd','$muralCity','$muralState', '$muralZip', '$country', '$imagePath', '$vmural')";
+									//$rec3 = $db->query($ins3);
 									
 						break;
 					}
