@@ -64,8 +64,7 @@
 					 	$muralState	  = $_POST['stateM'];
 					 	$muralZip     = $_POST['zipM'];
 					 	$country	  = $_POST['countryM'];
-					 	$imagePath    = $_POST['pic'];
-					 	//$muraldescript= serialize($_POST['script']);
+					 	$imagePath    = $_POST['filename'];
 					 	$muraldescript= implode( $_POST['script'] );
 						$dataSource   = $_POST['dataSource'];
 					
@@ -84,12 +83,22 @@
 						case "upload":
 
 									//Step 1 save file in upload folder
-									include_once("obj/fileup.php");
+									//include_once("obj/fileup.php");
 									//echo ":)";
 
-									//Step 2 save reference to file in DB
-						   			//$ins3 = "INSERT INTO Mural (name, script, landmark, artist, address, city, state, zip, country, imagePath, visible) VALUES ('$mural','$muraldescript','$land','$artist', '$muralAdd','$muralCity','$muralState', '$muralZip', '$country', '$imagePath', '$vmural')";
-									//$rec3 = $db->query($ins3);
+									
+						   		$ins3 = "INSERT INTO Mural (name, script, landmark, artist, address, city, state, zip, country, visible) VALUES ('$mural','$muraldescript','$land','$artist', '$muralAdd','$muralCity','$muralState', '$muralZip', '$country', '$vmural')";
+
+						   		//echo ($ins3);
+						   		$rec3 = $db->query($ins3);
+
+						case "pic":
+
+								 //include_once("upload/testUpload.php");
+								// $ins4 = "INSERT INTO Mural (imagePath) VALUES ('$imagePath')";
+
+								// echo ($ins4);
+									
 									
 						break;
 					}
@@ -107,7 +116,7 @@
 		<footer id="contact">
 				Contact us via email <a href="mailto:digikanyc@gmail.com">info@Wall_Off</a> 
 			    All rights reserved by Wall-Off NYC &copy; Copyright 
-			</footer>
+		</footer>
 	</div>
 
 	<script src="js/jquery.min.js"></script>

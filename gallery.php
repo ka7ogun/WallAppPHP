@@ -42,18 +42,18 @@
 			
 					<?php
 
+						
 						include_once("obj/dbKon.php");
 
 						$sql = "select * from Mural";
 						$rec = $db->query($sql);
 
-					  $image = $_GET['imagePath'];
 
 						foreach( $rec as $row){
 							print $row['name'];
 							print $row['city'];
 							print $row['state'];
-							echo '<img src="$image">';
+							echo '<img src="$imagePath"/>';
 							echo "<br>";
 						}
 

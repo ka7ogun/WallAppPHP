@@ -117,6 +117,7 @@ label { padding: 5px;
 
 }
 
+
 hr{
 	 padding: 0px;
 	  margin: 0px;
@@ -159,6 +160,14 @@ button {  margin-left: 30%;
 	            width: 150px;
 	           height: 30px;
 
+}
+
+#uploadBtn { background-color: transparent;
+						width: 100%;
+					   margin: 0px;
+					  padding: 0px;
+					   height: 15px;
+					   border: 0px;
 }
 
 footer a {	color: #ffc;

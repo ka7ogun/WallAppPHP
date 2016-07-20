@@ -8,23 +8,6 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
-
-	<script type="text/javascript">
-		
-		function uploadI (){
-			
-			var photo = document.getElementById("photo");
-			
-
-			var file = photo.files[0];
-
-			console.log("File name: " + file.fileName);
-			console.log("File size: " + file.fileSize);
-			
-			return false;
-		}
-
-	</script>
 </head>
 <body>
 
@@ -49,7 +32,7 @@
 	 	<div id="innerC">
 
 
-	 		 <form method="post" action="database.php" id="wallUpload" onsubmit="return uploadI();">
+	 		 <form method="post"  enctype="multipart/form-data" action="upload/database.php" id="wallUpload">
 				<legend>Upload Image</legend>
 					
 					<label> Artist Name: <input type="text" name="artistname" size="30" id="AN" placeholder="Artist Nickname" /></label>
@@ -57,22 +40,22 @@
 					<label> Mural Name:  <input type="text" name="muralname" size="30" id="MN" placeholder="Title of artwork" /> </label> 
 
 					<label id="muralIN" name="muralIN">Description: 
-						<table><tr><td><label for="hist"><input type="checkbox" name="script[]" id="hist" value="historical"> Historical</label>
-							<label for="comm"><input type="checkbox" name="script[]" id="comm" value="community"> Community</label>
-							<label for="abs"><input type="checkbox" name="script[]" id="abs" value="abstract"> Abstract</label>
-							<label for="old"><input type="checkbox" name="script[]" id="old" value="old_school"> Old School </label>
+						<table><tr><td><label for="hist"><input type="checkbox" name="script[]" id="hist" value="historical,"> Historical</label>
+							<label for="comm"><input type="checkbox" name="script[]" id="comm" value="community,"> Community</label>
+							<label for="abs"><input type="checkbox" name="script[]" id="abs" value="abstract,"> Abstract</label>
+							<label for="old"><input type="checkbox" name="script[]" id="old" value="old_school,"> Old School </label>
 							</td>
 							<td>
-							<label for="classic"><input type="checkbox" name="script[]" id="classic" value="classic"> Classic </label>
-							<label for="modern"><input type="checkbox" name="script[]" id="modern" value="modern"> Modern </label>
-							<label for="stencil"><input type="checkbox" name="script[]" id="stencil" value="stencil"> Stencil </label>
-							<label for="fullc"><input type="checkbox" name="script[]" id="fullc" value="fullcolor"> Full Color </label>
+							<label for="classic"><input type="checkbox" name="script[]" id="classic" value="classic,"> Classic </label>
+							<label for="modern"><input type="checkbox" name="script[]" id="modern" value="modern,"> Modern </label>
+							<label for="stencil"><input type="checkbox" name="script[]" id="stencil" value="stencil,"> Stencil </label>
+							<label for="fullc"><input type="checkbox" name="script[]" id="fullc" value="fullcolor,"> Full Color </label>
 							</td>
 							<td>
-							<label for="blkandwht"><input type="checkbox" name="script[]" id="blkandwht" value="blkandwht"> Black & White </label>
-							<label for="monoc"><input type="checkbox" name="script[]" id="monoc" value="monoc"> Monochrome </label>
-							<label for="type"><input type="checkbox" name="script[]" id="type" value="type"> Typegraphy </label>
-							<label for="edu"><input type="checkbox" name="script[]" id="edu" value="edu"> Education </label>
+							<label for="blkandwht"><input type="checkbox" name="script[]" id="blkandwht" value="blkandwht,"> Black & White </label>
+							<label for="monoc"><input type="checkbox" name="script[]" id="monoc" value="monoc,"> Monochrome </label>
+							<label for="type"><input type="checkbox" name="script[]" id="type" value="type,"> Typegraphy </label>
+							<label for="edu"><input type="checkbox" name="script[]" id="edu" value="edu,"> Education </label>
 							</td></tr>
 						</table>
 					</label>
@@ -81,9 +64,9 @@
 							
 
 					<label>Visibility:<br/>
-											  <input type="radio" name="visible" id="visible" value="true"> On Display
-											  <input type="radio" name="visible" id="visible" value="false"> Not Available
-											  <input type="radio" name="visible" id="visible" value="false"> Not Sure
+											  <input type="radio" name="visible" id="visible" value="1"> On Display
+											  <input type="radio" name="visible" id="visible" value="0"> Not Available
+											  <input type="radio" name="visible" id="visible" value="0"> Not Sure
 
 
 							</label>
@@ -104,17 +87,20 @@
 
 							<label> Country: <input type="text" name="countryM" id="countryM" size="19" placeholder="Outside of US"/></label>
 
-
 							<br/>
-							<form enctype="multipart/form-data" action="/" method="post">
-								<label>Photo:<input style="margin:0 auto;padding:10px" type="file" name="pic" id="photo" value="file1"></label>
-							</form>
-						
-							<input type="hidden" name="dataSource" value="upload"/>
+	
+				   				<label>Photo:<input type="file" id="file1" name="filename"/></label>
+							
+								<<input type="hidden" name="dataSource" value="upload"/>
 
-							<button type="button" id="uploadBtn"> Upload </button>
-							 
-				</form>
+									<button type="button" id="uploadBtn">
+										<input type="submit" value="Upload"/>
+								  </button>
+							</form>
+							
+								<!---->
+
+						
 			</div>
 	 	    
 	 		<footer id="contact">

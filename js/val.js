@@ -375,8 +375,9 @@ $(document).ready(function(){
 		// if( file === "" ){
 		// 	$("#file1").css("border", "solid 1px red");
 		// }else{
-		// 	file_valid = true;//validate( "normalString", file);
+		// 	//validate( "normalString", file);
 		// }
+		 file_valid = true;
 
 		if( display === "" ){
 			$("#visible").css("border", "solid 1px red");
@@ -385,8 +386,8 @@ $(document).ready(function(){
 		}
 		
 
-		if(artistname_valid||muralname_valid&&description_valid&&display_valid&&addressM_valid&&cityM_valid||stateM_valid){
-			alert("READY!")
+		if(artistname_valid||muralname_valid&&description_valid&&display_valid&&file_valid&&addressM_valid&&cityM_valid||stateM_valid){
+			//alert("READY!")
 			$("#wallUpload").submit();
 		}else{
 			alert("Please complete form");

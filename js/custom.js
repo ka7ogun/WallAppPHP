@@ -24,3 +24,8 @@ $("#innerC").css("height", 430);
 $("#dropbtn").click(function(){
     $("#dropdown-content").show();
 });
+
+// function submitForm(){
+// 	document.getElementsById("wallUpload").submit();
+// 	alert ("Form Submitted");
+// }
